@@ -1,0 +1,39 @@
+---
+title: Known CI footguns — encoding failures into agent context
+tags:
+  - agentic-engineering
+  - context-engineering
+  - ci
+date: 2026-07-03
+---
+
+Agents forget between sessions; the repo doesn't.
+
+On my HRMS project, a seeder bug (duplicate employee IDs from an
+un-deduplicated `pluck`) silently broke CI. The fix was one line. The durable
+fix was a standing section in the repo's `CLAUDE.md` that every agent session
+loads before touching code:
+
+```markdown
+## Known CI Footguns — Never Re-introduce
+1. Seeder dedup: always ->unique() on pluck('employeeId') in
+   MockDataSeeder — duplicate IDs will break seeding silently
+2. Leave calendar scoping: non-approver roles must only see
+   their own leaves — global scoping breaks this
+3. Staging Docker BuildKit cache is flaky — pre-existing,
+   unrelated to code changes
+```
+
+The rule: every regression a reviewer catches becomes a constraint the next
+agent session *starts with*, instead of a mistake it gets to repeat.
+
+Why this works better than a wiki:
+
+- The context file lives next to the code it protects, so it can't drift out
+  of the workflow — agents read it whether they "remember" to or not
+- Each entry is phrased as a constraint ("never re-introduce"), not a
+  post-mortem — agents act on imperatives better than narratives
+- It stays short. If it grows past a screen, entries get promoted into lint
+  rules or tests, which are even harder to ignore
+
+Related: [[gap-finder-audits]], [[parallel-agent-sessions]]
