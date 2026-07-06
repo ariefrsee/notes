@@ -17,6 +17,9 @@ Everything here traces back to something I actually shipped or broke.
 - [[spec-first-agentic-builds|Spec-first agentic builds]]
 - [[gap-finder-audits|Gap-finder audits: letting an agent hunt parity bugs]]
 - [[parallel-agent-sessions|Running parallel agent sessions]]
+- [[nginx-https-downgrade-behind-cloudflare-tunnel|The HTTPS downgrade nginx hid behind Cloudflare Tunnel]]
+- [[watchtower-push-to-live|Push-to-live with CI images + Watchtower]]
+- [[delete-the-vaporware|Delete the vaporware case study]]
 
 ## Elsewhere
 
