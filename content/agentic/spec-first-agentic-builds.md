@@ -1,5 +1,5 @@
 ---
-title: Spec-first agentic builds
+title: Write the plan before the code — especially with AI
 tags:
   - agentic-engineering
   - planning
@@ -7,9 +7,17 @@ tags:
 date: 2026-07-03
 ---
 
+> **In plain terms:** AI assistants are eager — ask for something vague
+> and they'll confidently build their best guess, which is often not what
+> you meant. So before any code gets written, I write a plain-language
+> plan describing every part of the product and what's deliberately left
+> out. The AI builds against that plan, and anything it builds that isn't
+> in the plan is treated as a red flag.
+
 Docs before code. When I built CrewSync (a multi-tenant maritime crew
 management SaaS), the first artifact wasn't a scaffold — it was an Obsidian
-vault: architecture, tech stack, and one note per module (auth,
+vault (a folder of linked notes): architecture, tech stack, and one note
+per module (auth,
 multi-tenancy, crew management, certificates, safe-manning compliance,
 rotations, sign-on/sign-off, sea service records).
 
@@ -38,4 +46,4 @@ improvised scope.
 This is the same reason [[known-ci-footguns|CI footguns live in CLAUDE.md]]:
 durable context beats repeated explanation.
 
-Related: [[parallel-agent-sessions]], [[gap-finder-audits]]
+Related: [[parallel-agent-sessions|Running several AI assistants at once]], [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]]

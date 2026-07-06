@@ -1,10 +1,16 @@
 ---
-title: Running parallel agent sessions
+title: Running several AI assistants at once (and staying in charge)
 tags:
   - agentic-engineering
   - workflow
 date: 2026-07-03
 ---
+
+> **In plain terms:** Instead of working with one AI assistant and waiting
+> while it finishes each task, I run several at the same time — one
+> writing code, one testing, one writing documentation — the way a manager
+> runs a small team. My job shifts to assigning the work, checking it, and
+> making the final calls.
 
 I run Claude Code and OpenAI Codex as parallel sub-agents: implementation,
 debugging, and documentation happening concurrently instead of serially.
@@ -37,4 +43,4 @@ job that was always worth the salary.
 - Every merge is human-gated. The commit trail carries the AI co-author
   trailers, so the split of labor is auditable, not vibes
 
-Related: [[spec-first-agentic-builds]], [[gap-finder-audits]]
+Related: [[spec-first-agentic-builds|Write the plan before the code]], [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]]

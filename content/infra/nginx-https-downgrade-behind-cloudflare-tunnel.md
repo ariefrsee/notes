@@ -1,5 +1,5 @@
 ---
-title: "The HTTPS downgrade nginx hid behind Cloudflare Tunnel"
+title: "How my website quietly lost its security padlock"
 tags:
   - nginx
   - cloudflare
@@ -8,9 +8,18 @@ tags:
 date: 2026-07-06
 ---
 
-My portfolio runs as a static export in an nginx container, published
-through a Cloudflare Tunnel. Cloudflare terminates TLS and forwards to the
-origin over **plain HTTP** — which nginx took personally.
+> **In plain terms:** The padlock in your browser's address bar means the
+> connection is encrypted. My site was silently dropping visitors from the
+> secure version to the insecure one during ordinary page-to-page
+> redirects — and browsers follow along without complaint, so nothing
+> looked broken. It only surfaced when the contact form stopped working.
+> The fix was one line of server configuration.
+
+My portfolio runs as a static export in an nginx container (nginx is the
+web server software that hands out the site's pages), published through a
+Cloudflare Tunnel. Cloudflare terminates TLS — it handles the encryption
+with the visitor — and forwards to my server over **plain HTTP**, which
+nginx took personally.
 
 ## The symptom
 
@@ -58,4 +67,4 @@ constructs absolute URLs — redirects, canonical links, sitemaps. `curl -sI`
 against the origin and read the `Location:` headers; the browser hides the
 downgrade from you.
 
-Related: [[watchtower-push-to-live|Push-to-live with CI images + Watchtower]], [[nextjs-14-to-16-silent-bugs]]
+Related: [[watchtower-push-to-live|How my site updates itself minutes after I save my work]], [[nextjs-14-to-16-silent-bugs|Upgrading a website's engine: the bugs that don't crash]]

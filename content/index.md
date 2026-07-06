@@ -11,15 +11,18 @@ Everything here traces back to something I actually shipped or broke.
 
 ## Start here
 
-- [[known-ci-footguns|Known CI footguns — encoding failures into agent context]]
-- [[nextjs-14-to-16-silent-bugs|Next.js 14 → 16: the bugs that don't crash]]
-- [[next-link-swallows-external-urls|next/link silently swallows external URLs]]
-- [[spec-first-agentic-builds|Spec-first agentic builds]]
-- [[gap-finder-audits|Gap-finder audits: letting an agent hunt parity bugs]]
-- [[parallel-agent-sessions|Running parallel agent sessions]]
-- [[nginx-https-downgrade-behind-cloudflare-tunnel|The HTTPS downgrade nginx hid behind Cloudflare Tunnel]]
-- [[watchtower-push-to-live|Push-to-live with CI images + Watchtower]]
-- [[delete-the-vaporware|Delete the vaporware case study]]
+Every note opens with a plain-language summary — you don't need to be a
+programmer to follow the stories.
+
+- [[known-ci-footguns|Teaching AI assistants to remember past mistakes]]
+- [[nextjs-14-to-16-silent-bugs|Upgrading a website's engine: the bugs that don't crash]]
+- [[next-link-swallows-external-urls|The menu link that did nothing when clicked]]
+- [[spec-first-agentic-builds|Write the plan before the code — especially with AI]]
+- [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]]
+- [[parallel-agent-sessions|Running several AI assistants at once (and staying in charge)]]
+- [[nginx-https-downgrade-behind-cloudflare-tunnel|How my website quietly lost its security padlock]]
+- [[watchtower-push-to-live|How my site updates itself minutes after I save my work]]
+- [[delete-the-vaporware|Why I deleted my most impressive-looking case study]]
 
 ## Elsewhere
 

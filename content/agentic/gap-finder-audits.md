@@ -1,5 +1,5 @@
 ---
-title: "Gap-finder audits: letting an agent hunt parity bugs"
+title: "Letting an AI hunt for the bugs humans skim past"
 tags:
   - agentic-engineering
   - auditing
@@ -7,13 +7,23 @@ tags:
 date: 2026-07-03
 ---
 
+> **In plain terms:** Many software systems have two doors into the same
+> data — say, a screen employees use and a back-office screen admins use.
+> Over time the two doors quietly stop behaving the same, and nobody
+> notices because checking is tedious. I give that tedious checking job to
+> an AI assistant, which found real problems — including one where the
+> same employee's salary came out different depending on which door you
+> used.
+
 A gap-finder audit is a focused agent task: *compare every code path in
 surface A against its equivalent in surface B and report behavioral gaps.*
 It works because parity bugs are exactly what humans skim past and agents
 grind through.
 
-On my HRMS, the audit brief was "compare every API code path against its
-Filament admin-panel equivalent." Real findings that shipped as fixes:
+On my HRMS (a human-resources management system), the audit brief was
+"compare every API code path against its Filament admin-panel equivalent"
+— that is, the programmatic interface versus the admin's point-and-click
+screens. Real findings that shipped as fixes:
 
 - **Payroll parity**: the API's payroll path was missing claims
   reimbursement, unpaid-leave deductions, and custom deductions that the
@@ -41,4 +51,4 @@ deadlock"; humans know which deadlocks are load-bearing.**
 - Require each finding to state: the gap, the user-visible consequence,
   and the proposed fix — so review is triage, not re-derivation
 
-Related: [[known-ci-footguns]], [[spec-first-agentic-builds]]
+Related: [[known-ci-footguns|Teaching AI assistants to remember past mistakes]], [[spec-first-agentic-builds|Write the plan before the code]]

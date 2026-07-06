@@ -1,11 +1,17 @@
 ---
-title: "Delete the vaporware case study"
+title: "Why I deleted my most impressive-looking case study"
 tags:
   - portfolio
   - writing
   - evidence
 date: 2026-07-06
 ---
+
+> **In plain terms:** My portfolio used to showcase a beautifully
+> presented project that, honestly, only existed as a design — it was
+> never built. I removed it and replaced it with a list of smaller, less
+> glamorous things that really happened, each traceable to actual saved
+> work. Real and modest beats impressive and unverifiable.
 
 My portfolio's AI page used to feature a "Maritime API Contract Inspector"
 — a fully-designed five-stage pipeline with polished diagrams. It read
@@ -35,4 +41,4 @@ Same principle as this garden: everything traces back to something I
 actually shipped or broke. A shorter list of true things beats a longer
 list of plausible ones.
 
-Related: [[gap-finder-audits]], [[spec-first-agentic-builds]]
+Related: [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]], [[spec-first-agentic-builds|Write the plan before the code]]

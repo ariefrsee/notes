@@ -1,5 +1,5 @@
 ---
-title: Known CI footguns — encoding failures into agent context
+title: Teaching AI assistants to remember past mistakes
 tags:
   - agentic-engineering
   - context-engineering
@@ -7,12 +7,20 @@ tags:
 date: 2026-07-03
 ---
 
+> **In plain terms:** AI coding assistants start every work session with a
+> blank memory, so they can repeat a mistake that was already caught and
+> fixed last month. My fix: keep a short "never do this again" list in a
+> file the assistant is required to read before touching any code. Every
+> mistake a human reviewer catches gets added to the list, so it can only
+> happen once.
+
 Agents forget between sessions; the repo doesn't.
 
 On my HRMS project, a seeder bug (duplicate employee IDs from an
-un-deduplicated `pluck`) silently broke CI. The fix was one line. The durable
-fix was a standing section in the repo's `CLAUDE.md` that every agent session
-loads before touching code:
+un-deduplicated `pluck`) silently broke CI — the automated pipeline that
+tests and ships every change. The fix was one line. The durable fix was a
+standing section in the repo's `CLAUDE.md` that every agent session loads
+before touching code:
 
 ```markdown
 ## Known CI Footguns — Never Re-introduce
@@ -36,4 +44,4 @@ Why this works better than a wiki:
 - It stays short. If it grows past a screen, entries get promoted into lint
   rules or tests, which are even harder to ignore
 
-Related: [[gap-finder-audits]], [[parallel-agent-sessions]]
+Related: [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]], [[parallel-agent-sessions|Running several AI assistants at once]]

@@ -1,5 +1,5 @@
 ---
-title: "Next.js 14 → 16: the bugs that don't crash"
+title: "Upgrading a website's engine: the bugs that don't crash"
 tags:
   - nextjs
   - migration
@@ -7,8 +7,16 @@ tags:
 date: 2026-07-03
 ---
 
-The compile errors in a Next 14 → 15/16 migration fix themselves — the build
-tells you. The dangerous changes are the ones that keep rendering:
+> **In plain terms:** Websites are built on frameworks that get major
+> upgrades, like swapping a car's engine. Some problems after the swap are
+> loud — the car won't start, you fix it immediately. The dangerous ones
+> are quiet: everything looks fine, but a page that should show a project
+> now politely says "not found." On my own site, that quiet failure ran
+> for months before I caught it.
+
+The compile errors in a Next.js 14 → 15/16 migration (Next.js is the
+framework this site and many others are built on) fix themselves — the
+build tells you. The dangerous changes are the ones that keep rendering:
 
 - **Dynamic route params became Promises.** In 14, `params` is a plain
   object; from 15 on it's a `Promise`. Code reading `params.slug` without
@@ -50,4 +58,4 @@ looks like. After a migration, drive every dynamic route in a real browser
 and confirm actual data renders. A `curl` returning 200 proves nothing —
 the 404 happens after hydration.
 
-Related: [[known-ci-footguns]], [[gap-finder-audits]]
+Related: [[known-ci-footguns|Teaching AI assistants to remember past mistakes]], [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]]

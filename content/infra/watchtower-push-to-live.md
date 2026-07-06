@@ -1,5 +1,5 @@
 ---
-title: "Push-to-live with CI images + Watchtower"
+title: "How my site updates itself minutes after I save my work"
 tags:
   - docker
   - ci
@@ -8,12 +8,20 @@ tags:
 date: 2026-07-06
 ---
 
-The deploy loop for my self-hosted portfolio: GitHub Actions builds a
-Docker image on every push to `main` and publishes it to GHCR; on the
-server, [Watchtower](https://containrrr.dev/watchtower/) polls the registry
-every 60s and restarts the container when a new image appears. The server
-never checks out the repo or runs a build — `docker compose up` on any
-machine is a full deploy target.
+> **In plain terms:** When I finish a change to my website, I don't upload
+> anything or touch the server. Saving my work triggers an automated
+> assembly line: the change is packaged up, and a small watcher program on
+> my server notices the new package within a minute and swaps it in. This
+> note describes that assembly line — and the two failures it hid from me,
+> both of which broke things while everything *looked* green.
+
+The deploy loop for my self-hosted portfolio: GitHub Actions (the
+automated assembly line) builds a Docker image — a sealed, ready-to-run
+package of the whole site — on every push to `main` and publishes it to a
+registry; on the server, [Watchtower](https://containrrr.dev/watchtower/)
+polls that registry every 60s and restarts the container when a new image
+appears. The server never checks out the repo or runs a build —
+`docker compose up` on any machine is a full deploy target.
 
 ```yaml
 web:
@@ -56,4 +64,4 @@ invisible from the outside. After wiring any auto-deploy loop, verify the
 loop itself — push a trivial visible change and watch it arrive, and check
 the poller's logs once, not never.
 
-Related: [[nginx-https-downgrade-behind-cloudflare-tunnel]], [[known-ci-footguns]]
+Related: [[nginx-https-downgrade-behind-cloudflare-tunnel|How my website quietly lost its security padlock]], [[known-ci-footguns|Teaching AI assistants to remember past mistakes]]

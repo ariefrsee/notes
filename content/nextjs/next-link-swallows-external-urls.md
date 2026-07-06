@@ -1,11 +1,18 @@
 ---
-title: "next/link silently swallows external URLs"
+title: "The menu link that did nothing when clicked"
 tags:
   - nextjs
   - debugging
   - app-router
 date: 2026-07-06
 ---
+
+> **In plain terms:** My website's menu had a button linking to this very
+> notes site. Clicking it did… nothing. No error, no warning — the button
+> even lit up as if it had worked. The cause: the site's internal
+> "navigation system" was asked to go to an address outside the site,
+> which it can't do, and it failed without telling anyone. The fix was to
+> mark outside links as ordinary links so the browser handles them itself.
 
 Another entry in the [[nextjs-14-to-16-silent-bugs|bugs that don't crash]]
 family: in the App Router, wrapping a **cross-origin URL** in `next/link`
@@ -62,4 +69,4 @@ moment one item is off-origin. Same rule as the migration bugs: click every
 nav item in a real browser — the ones that fail silently are exactly the
 ones a build can't catch.
 
-Related: [[nextjs-14-to-16-silent-bugs]], [[known-ci-footguns]]
+Related: [[nextjs-14-to-16-silent-bugs|Upgrading a website's engine: the bugs that don't crash]], [[known-ci-footguns|Teaching AI assistants to remember past mistakes]]
