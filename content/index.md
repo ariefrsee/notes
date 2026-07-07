@@ -22,6 +22,7 @@ programmer to follow the stories.
 - [[parallel-agent-sessions|Running several AI assistants at once (and staying in charge)]]
 - [[nginx-https-downgrade-behind-cloudflare-tunnel|How my website quietly lost its security padlock]]
 - [[watchtower-push-to-live|How my site updates itself minutes after I save my work]]
+- [[hosting-an-hrms-on-a-mac|Hosting a company's HR system on a Mac]]
 - [[delete-the-vaporware|Why I deleted my most impressive-looking case study]]
 
 ## Elsewhere
