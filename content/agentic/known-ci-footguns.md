@@ -44,4 +44,13 @@ Why this works better than a wiki:
 - It stays short. If it grows past a screen, entries get promoted into lint
   rules or tests, which are even harder to ignore
 
+## What I learned
+
+Don't fight an AI assistant's forgetfulness — design around it. The
+repo remembers so the agent doesn't have to, and a mistake written down
+as a constraint ("never re-introduce X") only ever happens once. The
+discipline that makes it work is keeping the list short: once an entry
+matters enough, it graduates into a test or a lint rule, which even a
+forgetful agent can't walk past.
+
 Related: [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]], [[parallel-agent-sessions|Running several AI assistants at once]]

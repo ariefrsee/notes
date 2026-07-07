@@ -37,8 +37,13 @@ Two things made this work:
   wrong and a human reverted it is *more* convincing than the successes,
   because it shows the review loop actually runs.
 
-Same principle as this garden: everything traces back to something I
-actually shipped or broke. A shorter list of true things beats a longer
-list of plausible ones.
+## What I learned
+
+A shorter list of true things beats a longer list of plausible ones.
+Deleting my most impressive-looking page made the portfolio *more*
+convincing, not less — because every remaining claim survives a
+follow-up question. It's the same principle this whole garden runs on:
+everything traces back to something I actually shipped or broke, and
+the failures earn more trust than the wins.
 
 Related: [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]], [[spec-first-agentic-builds|Write the plan before the code]]

@@ -82,7 +82,7 @@ security fundamentals real. Renting production infrastructure before
 the product is proven buys uptime the pilot doesn't need yet with money
 it hasn't earned.
 
-## The lesson
+## What I learned
 
 A production *pilot* doesn't need production *infrastructure*. The
 architecture is honest about its stage: one machine, one compose file,

@@ -62,7 +62,7 @@ Two follow-on details worth encoding:
 - **Mark it visually.** An outbound-arrow icon replaces the badge slot, so
   users know they're leaving the site.
 
-## The lesson
+## What I learned
 
 A shared "render everything through `<Link>`" abstraction is a trap the
 moment one item is off-origin. Same rule as the migration bugs: click every

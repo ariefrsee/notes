@@ -57,7 +57,7 @@ environment:
   - DOCKER_API_VERSION=1.44
 ```
 
-## The lesson
+## What I learned
 
 Both failures share a shape: the pipeline *runs* and the failure is
 invisible from the outside. After wiring any auto-deploy loop, verify the

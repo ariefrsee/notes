@@ -46,4 +46,13 @@ improvised scope.
 This is the same reason [[known-ci-footguns|CI footguns live in CLAUDE.md]]:
 durable context beats repeated explanation.
 
+## What I learned
+
+Writing the plan first felt slower and was faster: one day of writing
+notes bought a 196-file MVP the next day, because the agent spent zero
+time guessing what I meant. The deeper lesson is that a written spec
+turns "the AI went off the rails" from a feeling into a diff — anything
+built that isn't in the plan is visibly either the plan's fault or the
+agent's, and both are fixable.
+
 Related: [[parallel-agent-sessions|Running several AI assistants at once]], [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]]

@@ -43,4 +43,13 @@ job that was always worth the salary.
 - Every merge is human-gated. The commit trail carries the AI co-author
   trailers, so the split of labor is auditable, not vibes
 
+## What I learned
+
+The productivity isn't in the agents typing faster — it's in never
+sitting idle while something runs. My job stopped being "write the
+code" and became "keep three streams of work unblocked and review what
+comes back," which is a management skill, not a typing skill. The
+surprise: the boundaries (one session per task, knowledge in the repo,
+human-gated merges) matter more than the number of agents.
+
 Related: [[spec-first-agentic-builds|Write the plan before the code]], [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]]

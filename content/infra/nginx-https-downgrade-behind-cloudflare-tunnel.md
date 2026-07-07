@@ -60,7 +60,7 @@ exposed the downgrade. A fake implementation doesn't just fail to deliver;
 it *masks* the infrastructure bugs a real one would have surfaced months
 earlier.
 
-## The lesson
+## What I learned
 
 When TLS terminates upstream of your origin, audit every place the origin
 constructs absolute URLs — redirects, canonical links, sitemaps. `curl -sI`

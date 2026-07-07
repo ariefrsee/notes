@@ -51,7 +51,7 @@ rendering framer-motion components directly, which errors at build time —
 `notFound()` had been bailing out before that code path ever executed, so
 the build always "passed."
 
-## The lesson
+## What I learned
 
 On this bug class, *"it builds and the page loads"* is exactly what failure
 looks like. After a migration, drive every dynamic route in a real browser

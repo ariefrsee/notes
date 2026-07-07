@@ -51,4 +51,12 @@ deadlock"; humans know which deadlocks are load-bearing.**
 - Require each finding to state: the gap, the user-visible consequence,
   and the proposed fix — so review is triage, not re-derivation
 
+## What I learned
+
+Agents and humans are good at opposite halves of auditing: the agent
+never gets bored grinding through hundreds of code-path comparisons, and
+the human knows which of its findings — and which of its *fixes* — the
+business can actually live with. The payroll bug proved the first half;
+the same-day revert proved the second. I'd trust neither alone.
+
 Related: [[known-ci-footguns|Teaching AI assistants to remember past mistakes]], [[spec-first-agentic-builds|Write the plan before the code]]
