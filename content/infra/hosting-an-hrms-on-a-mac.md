@@ -49,6 +49,39 @@ file. Daily startup is two commands — `docker compose up -d` and
   on every restart; a named tunnel plus the DNS record is what makes the
   address permanent.
 
+## The trade-off, honestly
+
+What this buys:
+
+- **RM0/month**, no certificates to renew, no server to patch
+- **A hidden origin** — the Mac dials out and never opens a port, which
+  beats a carelessly firewalled VPS, not just matches it
+- **Real hardware** — a dev-spec Mac outruns a cheap VPS, and debugging
+  production means opening a terminal, not SSHing somewhere
+- **A clean exit** — compose file + migrations-on-boot + one `.env`
+  means moving to a VPS later is a redeploy, not a redesign
+
+What it costs:
+
+- **Uptime rides on one machine and one internet connection.** macOS
+  isn't a server OS; a sleep, reboot, or forgotten startup command is an
+  outage. "Leave this terminal open" *is* the availability story.
+- **Failures are silent.** A dead tunnel looks exactly like nothing —
+  the same lesson as [[watchtower-push-to-live|the frozen deploy loop]]:
+  loops that die quietly need something that checks them.
+- **Backups are nobody's problem but mine.** The database lives in a
+  Docker volume on one SSD. For an HR system this is the sharpest edge —
+  an off-machine nightly `pg_dump` is the first thing to add, not a
+  someday item.
+- **Cloudflare sees the plaintext** and is a single dependency; fine at
+  pilot stage, worth naming.
+
+The reasoning: a pilot with one company and unproven revenue should
+cheap out on exactly one thing — availability — while keeping the
+security fundamentals real. Renting production infrastructure before
+the product is proven buys uptime the pilot doesn't need yet with money
+it hasn't earned.
+
 ## The lesson
 
 A production *pilot* doesn't need production *infrastructure*. The
