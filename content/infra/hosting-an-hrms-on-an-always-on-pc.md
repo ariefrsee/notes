@@ -1,5 +1,5 @@
 ---
-title: "Hosting a company's HR system on a Mac"
+title: "Hosting a company's HR system on a PC that never turns off"
 tags:
   - infra
   - cloudflare
@@ -10,38 +10,40 @@ date: 2026-07-07
 
 > **In plain terms:** hr.ariefrse.my is a real HR system — payroll,
 > leave, attendance — being piloted by a real company. It doesn't run in
-> a data center. It runs in Docker on a Mac, and a free Cloudflare
-> service carries traffic from the internet to that Mac through an
-> outbound connection, so the machine never has to open a single door to
-> the outside world. Monthly hosting cost: zero.
+> a data center. It runs in Docker on an always-on Windows PC, and a
+> free Cloudflare service carries traffic from the internet to that
+> machine through an outbound connection, so it never has to open a
+> single door to the outside world. Monthly hosting cost: zero.
 
 The pilot stack for hrmydeck (the HRMS built end-to-end with AI agents —
 see [[known-ci-footguns|how its mistakes become agent context]]) is
 three pieces, none of them a rented server:
 
-- **The Mac** runs everything in Docker Compose: Postgres 16 and one
+- **The PC** runs everything in Docker Compose: Postgres 16 and one
   Laravel container that serves all three surfaces — `/admin` (the
   Filament HR panel), `/employee` (the React staff self-service app),
   and `/api` (the mobile app's backend).
-- **Cloudflare Tunnel** exposes it. `cloudflared` on the Mac dials *out*
-  to Cloudflare and keeps the connection open; visitor traffic to
+- **Cloudflare Tunnel** exposes it. `cloudflared` on the machine dials
+  *out* to Cloudflare and keeps the connection open; visitor traffic to
   `hr.ariefrse.my` rides back down it. No port forwarding, no public IP,
-  no firewall holes — the Mac is unreachable except through the tunnel.
+  no firewall holes — the PC is unreachable except through the tunnel.
 - **Hostinger holds the DNS**: a CNAME points `hr` at
   `<tunnel-uuid>.cfargotunnel.com`. Cloudflare terminates TLS, so the
-  padlock works without managing certificates on the Mac.
+  padlock works without managing certificates on the machine.
 
 The container boots self-sufficient: database migrations run on start,
 the first boot seeds demo accounts, and secrets (app key, a separate
 encryption master key for employee data) live in one `.env.staging`
-file. Daily startup is two commands — `docker compose up -d` and
-`cloudflared tunnel run`.
+file. The machine runs unattended: `cloudflared` is installed as a
+Windows service that restarts if it dies, the containers carry
+`restart: unless-stopped` so they return whenever Docker does, and a
+scheduled task dumps the database nightly to a second location.
 
 ## The footguns
 
 - **Don't run `cloudflared` inside Docker** pointing at `localhost` —
   that's the *container's* localhost, and every request 502s. The tunnel
-  runs natively on the Mac; the app runs in Docker.
+  runs natively on the host; the app runs in Docker.
 - **The app must know its public URL.** Laravel's session cookies are
   scoped to `STAGING_PUBLIC_URL`; if it doesn't match the browser's URL
   exactly, logins die with "Page expired" and nothing hints why.
@@ -53,26 +55,28 @@ file. Daily startup is two commands — `docker compose up -d` and
 
 What this buys:
 
-- **RM0/month**, no certificates to renew, no server to patch
-- **A hidden origin** — the Mac dials out and never opens a port, which
-  beats a carelessly firewalled VPS, not just matches it
-- **Real hardware** — a dev-spec Mac outruns a cheap VPS, and debugging
-  production means opening a terminal, not SSHing somewhere
+- **RM0/month**, no certificates to renew, no server to rent
+- **A hidden origin** — the machine dials out and never opens a port,
+  which beats a carelessly firewalled VPS, not just matches it
+- **Real hardware** — a desktop PC outruns a cheap VPS, and debugging
+  production means sitting down at the machine, not SSHing somewhere
 - **A clean exit** — compose file + migrations-on-boot + one `.env`
   means moving to a VPS later is a redeploy, not a redesign
 
 What it costs:
 
-- **Uptime rides on one machine and one internet connection.** macOS
-  isn't a server OS; a sleep, reboot, or forgotten startup command is an
-  outage. "Leave this terminal open" *is* the availability story.
+- **Uptime rides on one machine and one internet connection.** The PC
+  never turns off, but Windows updates reboot it on their own schedule,
+  and a power cut or ISP outage takes the HR system down with it.
 - **Failures are silent.** A dead tunnel looks exactly like nothing —
   the same lesson as [[watchtower-push-to-live|the frozen deploy loop]]:
-  loops that die quietly need something that checks them.
+  loops that die quietly need something that checks them. Here that
+  watcher is the OS itself — the tunnel runs as a service that restarts
+  on crash, and the containers restart with Docker.
 - **Backups are nobody's problem but mine.** The database lives in a
-  Docker volume on one SSD. For an HR system this is the sharpest edge —
-  an off-machine nightly `pg_dump` is the first thing to add, not a
-  someday item.
+  Docker volume on one disk — for an HR system, the sharpest edge of
+  the whole setup. The mitigation: a nightly scheduled `pg_dump` lands
+  in a second, cloud-synced location, with two weeks of retention.
 - **Cloudflare sees the plaintext** and is a single dependency; fine at
   pilot stage, worth naming.
 
@@ -87,8 +91,9 @@ it hasn't earned.
 A production *pilot* doesn't need production *infrastructure*. The
 architecture is honest about its stage: one machine, one compose file,
 zero hosting bill — but with real TLS, a hidden origin, encrypted
-employee data, and boot-time migrations, so graduating to a VPS later is
-a `docker compose up` on different hardware, not a redesign.
+employee data, boot-time migrations, and nightly off-disk backups, so
+graduating to a VPS later is a `docker compose up` on different
+hardware, not a redesign.
 
 Same tunnel trick as the portfolio — and the same class of surprise:
 see [[nginx-https-downgrade-behind-cloudflare-tunnel|How my website quietly lost its security padlock]].
