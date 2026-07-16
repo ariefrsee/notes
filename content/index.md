@@ -14,6 +14,8 @@ Everything here traces back to something I actually shipped or broke.
 Every note opens with a plain-language summary — you don't need to be a
 programmer to follow the stories.
 
+- [[ci-that-checks-the-live-site|A green build isn't a deploy: making CI check the live site]]
+- [[config-that-silently-does-nothing|The settings that did nothing and the icons that didn't exist]]
 - [[salah-journey|An app that teaches you to pray, starting from zero]]
 - [[what-building-salah-journey-taught-me|What building a prayer app taught me about coding]]
 - [[known-ci-footguns|Teaching AI assistants to remember past mistakes]]
