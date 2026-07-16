@@ -14,6 +14,10 @@ Everything here traces back to something I actually shipped or broke.
 Every note opens with a plain-language summary — you don't need to be a
 programmer to follow the stories.
 
+Most of this garden turns out to be one lesson learned repeatedly —
+[[everything-fails-silently|Everything fails silently]] is the map. Start
+there, or pick an incident:
+
 - [[ci-that-checks-the-live-site|A green build isn't a deploy: making CI check the live site]]
 - [[config-that-silently-does-nothing|The settings that did nothing and the icons that didn't exist]]
 - [[salah-journey|An app that teaches you to pray, starting from zero]]
