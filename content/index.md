@@ -27,6 +27,7 @@ there, or pick an incident:
 - [[next-link-swallows-external-urls|The menu link that did nothing when clicked]]
 - [[spec-first-agentic-builds|Write the plan before the code — especially with AI]]
 - [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]]
+- [[authz-hardening-sweep|The sweep that found managers could pay other teams' claims]]
 - [[parallel-agent-sessions|Running several AI assistants at once (and staying in charge)]]
 - [[nginx-https-downgrade-behind-cloudflare-tunnel|How my website quietly lost its security padlock]]
 - [[watchtower-push-to-live|How my site updates itself minutes after I save my work]]

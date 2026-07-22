@@ -59,4 +59,4 @@ the human knows which of its findings — and which of its *fixes* — the
 business can actually live with. The payroll bug proved the first half;
 the same-day revert proved the second. I'd trust neither alone.
 
-Related: [[known-ci-footguns|Teaching AI assistants to remember past mistakes]], [[spec-first-agentic-builds|Write the plan before the code]]
+Related: [[known-ci-footguns|Teaching AI assistants to remember past mistakes]], [[spec-first-agentic-builds|Write the plan before the code]], [[authz-hardening-sweep|The sweep that found managers could pay other teams' claims]]
