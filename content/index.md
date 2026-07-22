@@ -21,8 +21,6 @@ entirely by AI agents]] is the hub. Start at either, or pick an incident:
 
 - [[ci-that-checks-the-live-site|A green build isn't a deploy: making CI check the live site]]
 - [[config-that-silently-does-nothing|The settings that did nothing and the icons that didn't exist]]
-- [[salah-journey|An app that teaches you to pray, starting from zero]]
-- [[what-building-salah-journey-taught-me|What building a prayer app taught me about coding]]
 - [[known-ci-footguns|Teaching AI assistants to remember past mistakes]]
 - [[nextjs-14-to-16-silent-bugs|Upgrading a website's engine: the bugs that don't crash]]
 - [[next-link-swallows-external-urls|The menu link that did nothing when clicked]]
