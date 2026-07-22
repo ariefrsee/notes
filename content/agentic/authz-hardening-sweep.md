@@ -56,4 +56,4 @@ the system did exactly what the code said, and the code just didn't say
 enough. Fixed before the pilot's first real payroll run — the version of
 "before" that actually matters.
 
-Related: [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]], [[everything-fails-silently|Everything fails silently]]
+Related: [[hrma-built-by-ai-agents|hrma: an HR system built almost entirely by AI agents]], [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]], [[everything-fails-silently|Everything fails silently]]

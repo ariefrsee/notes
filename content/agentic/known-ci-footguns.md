@@ -53,4 +53,4 @@ discipline that makes it work is keeping the list short: once an entry
 matters enough, it graduates into a test or a lint rule, which even a
 forgetful agent can't walk past.
 
-Related: [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]], [[parallel-agent-sessions|Running several AI assistants at once]]
+Related: [[hrma-built-by-ai-agents|hrma: an HR system built almost entirely by AI agents]], [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]], [[parallel-agent-sessions|Running several AI assistants at once]]

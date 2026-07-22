@@ -98,4 +98,4 @@ hardware, not a redesign.
 Same tunnel trick as the portfolio — and the same class of surprise:
 see [[nginx-https-downgrade-behind-cloudflare-tunnel|How my website quietly lost its security padlock]].
 
-Related: [[watchtower-push-to-live|How my site updates itself minutes after I save my work]], [[spec-first-agentic-builds|Write the plan before the code]]
+Related: [[hrma-built-by-ai-agents|hrma: an HR system built almost entirely by AI agents]], [[watchtower-push-to-live|How my site updates itself minutes after I save my work]], [[spec-first-agentic-builds|Write the plan before the code]]

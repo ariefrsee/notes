@@ -15,8 +15,9 @@ Every note opens with a plain-language summary — you don't need to be a
 programmer to follow the stories.
 
 Most of this garden turns out to be one lesson learned repeatedly —
-[[everything-fails-silently|Everything fails silently]] is the map. Start
-there, or pick an incident:
+[[everything-fails-silently|Everything fails silently]] is the map. For the
+HR system itself, [[hrma-built-by-ai-agents|hrma: an HR system built almost
+entirely by AI agents]] is the hub. Start at either, or pick an incident:
 
 - [[ci-that-checks-the-live-site|A green build isn't a deploy: making CI check the live site]]
 - [[config-that-silently-does-nothing|The settings that did nothing and the icons that didn't exist]]
@@ -28,6 +29,7 @@ there, or pick an incident:
 - [[spec-first-agentic-builds|Write the plan before the code — especially with AI]]
 - [[gap-finder-audits|Letting an AI hunt for the bugs humans skim past]]
 - [[authz-hardening-sweep|The sweep that found managers could pay other teams' claims]]
+- [[hrma-built-by-ai-agents|hrma: an HR system built almost entirely by AI agents]]
 - [[parallel-agent-sessions|Running several AI assistants at once (and staying in charge)]]
 - [[nginx-https-downgrade-behind-cloudflare-tunnel|How my website quietly lost its security padlock]]
 - [[watchtower-push-to-live|How my site updates itself minutes after I save my work]]
